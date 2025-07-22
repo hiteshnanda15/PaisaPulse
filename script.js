@@ -398,48 +398,9 @@ transaction.amount
   // --- Initial Setup & Event Listeners ---
   const init = () => {
     if (localStorage.getItem('transactions') === null) {
-      const today = new Date();
-      const yesterday = new Date(today);
-      yesterday.setDate(yesterday.getDate() - 1);
-      const twoDaysAgo = new Date(today);
-      twoDaysAgo.setDate(twoDaysAgo.getDate() - 2);
-
-      transactions = [
-        {
-          id: 1,
-          title: 'Monthly Salary',
-          amount: 3500,
-          type: 'income',
-          category: 'Salary',
-          date: today.toISOString().split('T')[0],
-        },
-        {
-          id: 2,
-          title: 'Groceries',
-          amount: 150.75,
-          type: 'expense',
-          category: 'Food',
-          date: today.toISOString().split('T')[0],
-        },
-        {
-          id: 3,
-          title: 'Internet Bill',
-          amount: 60,
-          type: 'expense',
-          category: 'Bills',
-          date: yesterday.toISOString().split('T')[0],
-        },
-        {
-          id: 4,
-          title: 'New T-shirt',
-          amount: 25.5,
-          type: 'expense',
-          category: 'Shopping',
-          date: twoDaysAgo.toISOString().split('T')[0],
-        },
-      ];
-      saveTransactions();
-    }
+  transactions = [];
+  saveTransactions();
+}
 
     openModalBtn.addEventListener('click', () => openTransactionModal());
     closeModalBtn.addEventListener('click', () => closeModal(transactionModal));
